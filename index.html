@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to MESSMAITRI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    h4 {
+      font-size: 22px;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #ff5722;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e64a19;
+    }
+
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background-color: #222;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 400px;
+      color: #fff;
+      text-align: center;
+      border: 2px solid #ff9800;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .modal-content h2 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    .modal-content p {
+      font-size: 18px;
+      margin: 5px 0;
+    }
+
+    .close {
+      color: #ffcc00;
+      float: right;
+      font-size: 26px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .catchy-line {
+      font-style: italic;
+      color: #90ee90;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    /* Logo style */
+    .logo-img {
+      position: absolute;
+      top: 35px;
+      left: 35px;
+      width: 150px;
+      height: auto;
+      border-radius: 25px;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo image on top-left corner -->
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo-img">
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/choose_role" class="btn">Register Your Mess</a>
+
+    <a href="#" onclick="document.getElementById('contactModal').style.display='block'">Contact Us</a>
+  </nav>
+
+  <div class="overlay">
+    <h1>🍽️ Welcome to MESSMAITRI !!!</h1>
+    <h4>“Ego aur Khana — dono garam ho toh maza aata hai!”</h4>
+    <p>Delicious, hygienic, and budget-friendly food delivered straight from our heart to your plate!</p>
+    <a href="/choose_role" class="btn">Register Your Mess</a>
+  </div>
+
+  <!-- Contact Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('contactModal').style.display='none'">&times;</span>
+      <h2>📞 Contact Us</h2>
+      <p><strong>Phone:</strong> 8263826916</p>
+      <p><strong>Email:</strong> messmaitri@gmail.com</p>
+      <p class="catchy-line">"We're just one call or click away — let's make your mess shine!"</p>
+    </div>
+  </div>
+
+  <script>
+    window.onclick = function(event) {
+      const modal = document.getElementById('contactModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>

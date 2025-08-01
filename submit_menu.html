@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Today's Menu</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("/static/food-bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1000px;
+      background-color: rgba(0, 0, 0, 0.8);
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .form-section {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+
+    .form-section h2 {
+      text-align: center;
+      color: #ffcc00;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 10px 0 5px;
+      color: #00ffcc;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      margin-bottom: 15px;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    button {
+      background-color: #ffcc00;
+      color: black;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ffaa00;
+    }
+
+    .image-section {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .image-section img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    }
+
+    .menu-section-title {
+      font-size: 20px;
+      color: #ff99ff;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="form-section">
+    <h2>🍽 Submit Today's Menu</h2>
+    <form method="POST">
+      <label for="date">📅 Date:</label>
+      <input type="date" name="date" id="date" required>
+
+      <div class="menu-section-title">🍳 Breakfast Menu:</div>
+      <textarea name="breakfast" id="breakfast" rows="3" placeholder="e.g. Idli, Poha, Chai..." required></textarea>
+
+      <div class="menu-section-title">🍛 Lunch Menu:</div>
+      <textarea name="lunch" id="lunch" rows="3" placeholder="e.g. Dal Rice, Roti, Aloo Sabzi..." required></textarea>
+
+      <div class="menu-section-title">🍲 Dinner Menu:</div>
+      <textarea name="dinner" id="dinner" rows="3" placeholder="e.g. Pulao, Chapati, Paneer..." required></textarea>
+
+      <button type="submit">✅ Submit Menu</button>
+    </form>
+  </div>
+
+  <div class="image-section">
+    <img src="https://blog.swiggy.com/wp-content/uploads/2024/02/Masala-Dosa-1024x538.jpg" alt="Masala Dosa">
+    <img src="https://images.squarespace-cdn.com/content/v1/612d4825ee7c3b7ba3e215b7/1667458982443-N6XGU1PU7335QEMVUP7M/Delicious+food.png" alt="Delicious Food">
+    <img src="https://www.kolhapurtourism.org/wp-content/uploads/2021/09/non-veg-thali-kolhapur.jpg"
+  </div>
+</div>
+
+</body>
+</html>
+
