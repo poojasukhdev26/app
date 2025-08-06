@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #232526, #414345);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      margin: 0;
+    }
+
+    .otp-box {
+      background-color: rgba(0,0,0,0.7);
+      padding: 40px;
+      border-radius: 15px;
+      width: 400px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+      text-align: center;
+    }
+
+    h2 {
+      color: #ff9800;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin: 20px 0;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .otp-display {
+      font-size: 18px;
+      color: #ffeb3b;
+      margin-top: 20px;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 16px;
+      color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <div class="otp-box">
+    <h2>🔐 OTP Verification</h2>
+    <form method="POST">
+      <input type="text" name="otp" placeholder="Enter 4-digit OTP" maxlength="4" pattern="\d{4}" required>
+      <br>
+      <button type="submit" class="btn">Verify</button>
+    </form>
+
+    {% if error %}
+      <div class="message">{{ error }}</div>
+    {% endif %}
+
+    <!-- Show OTP for testing only -->
+    <div class="otp-display">
+      <strong>Test OTP:</strong> {{ otp }}
+    </div>
+  </div>
+</body>
+</html>

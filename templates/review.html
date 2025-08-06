@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Share Your Review</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://thumbs.dreamstime.com/b/firm-handshake-demonstrating-professional-trust-mutual-agreement-partners-shaking-hands-to-demonstrate-respect-business-356789917.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .review-container {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    .star-rating {
+      direction: rtl;
+      display: flex;
+      justify-content: space-between;
+      font-size: 28px;
+      margin-top: 10px;
+    }
+
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+
+    .star-rating label {
+      color: #aaa;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star-rating input[type="radio"]:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: gold;
+    }
+
+    .btn {
+      background-color: #ff5722;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      font-size: 18px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="review-container">
+    <h2>💬 Share Your Experience</h2>
+    <form method="POST" action="/submit_review">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="mess_name">Mess Name</label>
+      <input type="text" id="mess_name" name="mess_name" required>
+
+      <label for="review">Your Review</label>
+      <textarea id="review" name="review" required placeholder="Tell us what you loved or what we can improve!"></textarea>
+
+      <label>Rating</label>
+      <div class="star-rating">
+        <input type="radio" id="5-stars" name="rating" value="5" required><label for="5-stars">★</label>
+        <input type="radio" id="4-stars" name="rating" value="4"><label for="4-stars">★</label>
+        <input type="radio" id="3-stars" name="rating" value="3"><label for="3-stars">★</label>
+        <input type="radio" id="2-stars" name="rating" value="2"><label for="2-stars">★</label>
+        <input type="radio" id="1-star"  name="rating" value="1"><label for="1-star">★</label>
+      </div>
+
+      <button type="submit" class="btn">Submit Review</button>
+    </form>
+  </div>
+</body>
+</html>

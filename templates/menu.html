@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Today’s Menu</title>
+</head>
+<body>
+  <h2>Today’s Menu</h2>
+  {% if menu %}
+    {% for row in menu %}
+      <div>
+        <h3>{{ row[1] }}</h3>
+        <ul>
+          <li>{{ row[2] }}</li>
+          <li>{{ row[3] }}</li>
+          <li>{{ row[4] }}</li>
+        </ul>
+        <p><strong>Note:</strong> {{ row[5] }}</p>
+      </div>
+      <hr>
+    {% endfor %}
+  {% else %}
+    <p>No menu submitted yet today.</p>
+  {% endif %}
+</body>
+</html>

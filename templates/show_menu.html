@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Today's Mess Menu</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("{{ url_for('static', filename='food-bg.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.75);
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+
+        .mess-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #ffcc00;
+            border-radius: 12px;
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        .mess-card h2 {
+            font-size: 26px;
+            color: #00ffcc;
+        }
+
+        .mess-card p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .food-img {
+            width: 32%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍱 Today's Menu from Mess</h1>
+
+        {% if menus %}
+            {% for mess_name, breakfast, lunch, dinner in menus %}
+                <div class="mess-card">
+                    <h2>🏠 {{ mess_name }}</h2>
+                    <p><strong>Breakfast:</strong> {{ breakfast }}</p>
+                    <p><strong>Lunch:</strong> {{ lunch }}</p>
+                    <p><strong>Dinner:</strong> {{ dinner }}</p>
+
+                    <!-- Flex container for images -->
+                    <div class="image-row">
+                        <img src="{{ url_for('static', filename='dosa.jpg') }}"
+                             alt="Masala Dosa" class="food-img">
+                        <img src="https://images.squarespace-cdn.com/content/v1/612d4825ee7c3b7ba3e215b7/1667458982443-N6XGU1PU7335QEMVUP7M/Delicious+food.png" alt="Delicious Food" class="food-img">
+                        <img src="{{ url_for('static', filename='nonveg.jpg') }}"
+                             alt="Nonveg Thali" class="food-img">
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p style="text-align:center; font-size:20px; color:#ff4444;">❌ No menus submitted yet for today.</p>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        © 2025 MESSMAITRI | Eat Fresh. Stay Healthy.
+    </div>
+</body>
+</html>
