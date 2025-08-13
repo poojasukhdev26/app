@@ -14,4 +14,4 @@ for root, _, files in os.walk(folder):
                 new_content = content.replace(target, replacement)
                 with open(path, 'w', encoding='utf-8') as f:
                     f.write(new_content)
-                print(f"✅ Replaced in: {path}")
+                print(f"✅ Replaced with: {path}")
