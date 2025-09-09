@@ -44,9 +44,13 @@ def save_menu(mess_name, date_value, breakfast, lunch, dinner):
 def get_today_menu():
     today = date.today().isoformat()
     conn = sqlite3.connect('menu_data.db')
+    conn.execute("ATTACH DATABASE 'mess_data.db' AS messdb")
     c = conn.cursor()
     c.execute('''
-        SELECT mess_name, breakfast, lunch, dinner FROM menus WHERE date = ?
+        SELECT m.mess_name, m.breakfast, m.lunch, m.dinner, ms.location
+        FROM menus m
+        LEFT JOIN messdb.mess ms ON m.mess_name = ms.mess_name
+        WHERE m.date = ?
     ''', (today,))
     data = c.fetchall()
     conn.close()

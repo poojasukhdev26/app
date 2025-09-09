@@ -76,12 +76,17 @@
         <h1>🍱 Today's Menu from Mess</h1>
 
         {% if menus %}
-            {% for mess_name, breakfast, lunch, dinner in menus %}
+            {% for mess_name, breakfast, lunch, dinner, location in menus %}
                 <div class="mess-card">
                     <h2>🏠 {{ mess_name }}</h2>
+                    <p><strong>Location:</strong> {{ location if location else 'Not Provided' }}</p>
                     <p><strong>Breakfast:</strong> {{ breakfast }}</p>
                     <p><strong>Lunch:</strong> {{ lunch }}</p>
                     <p><strong>Dinner:</strong> {{ dinner }}</p>
+
+                    {% if location %}
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ location|urlencode }}" target="_blank" style="display:inline-block;margin:10px 0;padding:8px 18px;background:#00cc66;color:#fff;border-radius:6px;text-decoration:none;font-weight:bold;">📍 Get Directions</a>
+                    {% endif %}
 
                     <!-- Flex container for images -->
                     <div class="image-row">
